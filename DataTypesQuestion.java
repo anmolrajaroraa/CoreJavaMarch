@@ -10,6 +10,8 @@ long
 
 */
 
+import java.math.BigInteger;
+
 class DataTypesQues{
     public static void main(String args[]){
         int a = 123;
@@ -70,5 +72,8 @@ class DataTypesQues{
         String veryBigNo2 = "23832928393823279976790679";
         System.out.println(veryBigNo + veryBigNo2);
 
+        BigInteger num1 = new BigInteger("2383292839382327997679069");
+        BigInteger num2 = new BigInteger("2383292839382327997679067");
+        System.out.println(num1.add(num2));
     }
 }
