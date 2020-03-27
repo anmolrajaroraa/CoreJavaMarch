@@ -56,19 +56,23 @@ public class ArrayDemoPart2 {
 		
 		System.out.println("*************");
 
-		int arr3D[][][] = {  {{1,2},{3,4}} , {{5,6},{7,8}}  , {{9,20},{34,23},{3255,535,3}}  };    
+		int arr3D[][][] = {  {{1,2},{3,4}} , {{5,6},{7,8}}  , {{9,20},{34},{3255,535,3}}  };
 		
-		for( int [][]array2D : arr3D) {
-			System.out.print("[");
-			for( int arr1D[] : array2D ) {
-				System.out.print("[");
-				for( int element : arr1D ) {
-					System.out.print(element + ", ");
-				}
-				System.out.print("]");
-			}
-			System.out.println("]");
-		}
+		arr3D[2][0][0] = 19;
+		
+//		for( int [][]array2D : arr3D) {
+//			System.out.print("[");
+//			for( int arr1D[] : array2D ) {
+//				System.out.print("[");
+//				for( int element : arr1D ) {
+//					System.out.print(element + ", ");
+//				}
+//				System.out.print("]");
+//			}
+//			System.out.println("]");
+//		}
+		
+		
 		
 	}
 
