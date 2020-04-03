@@ -42,7 +42,7 @@ public class ArrayListDemo {
 			System.out.println(al.get(i));
 		}
 		
-		System.out.println(i);
+//		System.out.println(i);
 		
 		ArrayList<String> subjects = new ArrayList<>();
 		subjects.add("Java");

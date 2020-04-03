@@ -2,13 +2,13 @@ package oops;
 
 // custom data type
 class Student{
-	int id;
+	int sid;
 	String name;
 	String course;
 	int duration;
 	
 	void showDetails() {
-		System.out.println("Id is " + id);
+		System.out.println("Id is " + sid);
 		System.out.println("Name is " + name);
 		System.out.println("Course is " + course);
 		System.out.println("Duration is " + duration);
@@ -21,28 +21,44 @@ public class OOPSDemo {
 		
 		Student Ram = new Student(); // compile time assignment
 		// Ram is a reference variable that can point only to a Student object
-		Ram.id = 101;
+		// Ram stores memory location (address) of object
+		// Ram -> &77;
+		Ram.sid = 101;
+//		&77.id = 101;
 		Ram.name = "Ram Kumar";
 		Ram.course = "Core Java";
 		Ram.duration = 3;
 //		System.out.println(Ram);
-//		System.out.println(Ram.id);
+//		System.out.println(Ram.sid);
 //		System.out.println(Ram.name);
 //		System.out.println(Ram.course);
 //		System.out.println(Ram.duration);
 		Ram.showDetails();
 		
 		Student Shyam = new Student();
-		Shyam.id = 102;
+		Shyam.sid = 102;
 		Shyam.name = "Shyam Kumar";
 		Shyam.course = "Advance Java";
 		Shyam.duration = 3;
 //		System.out.println(Shyam);
-//		System.out.println(Shyam.id);
+//		System.out.println(Shyam.sid);
 //		System.out.println(Shyam.name);
 //		System.out.println(Shyam.course);
 //		System.out.println(Shyam.duration);
 		Shyam.showDetails();
+		
+		String s = "Ram";
+		s.length();
+		s.toUpperCase();
+		s.toCharArray();
+		
+		//Abstraction (hiding details) of things
+		//Pointers are hidden because of security reason
+		//File handling is easy
+		
+//		100,00,00,000
+//		7.5,00,00,000
+//		25,00,00,000
 		
 	}
 
