@@ -5,7 +5,7 @@ package oops;
 import java.util.Scanner;
 
 class MyStudent{
-	int id ;
+	int id;
 	String name;
 	String courseName;
 	int courseDuration;
@@ -25,6 +25,18 @@ class MyStudent{
 		name = student_name;
 		courseName = course;
 		courseDuration = duration;
+	}
+	
+	void takeInput2(int id, String name, String courseName, int courseDuration){
+		if(id > 0 && courseDuration > 0) {
+			this.id = id; //this keyword always points to the current owner (caller) of the fn
+			this.name = name;
+			this.courseName = courseName;
+			this.courseDuration = courseDuration;
+		}
+		else {
+			System.out.println("ID / courseDuration cannot be negative");
+		}
 	}
 	
 	void takeInputUsingScanner() {
@@ -50,8 +62,10 @@ public class OOPSBackup {
 		
 		MyStudent obj1 = new MyStudent();
 //		obj1.takeInput(101, "Ram", "Core java", 4);
-		obj1.takeInputUsingScanner();
+//		obj1.takeInputUsingScanner();
+		obj1.takeInput2(-101, "Ram", "Core Java", 4);
 		obj1.showDetails();
+		System.out.println(obj1.id);
 		
 //		obj1.id = 101;
 //		obj1.name = "Ram";
