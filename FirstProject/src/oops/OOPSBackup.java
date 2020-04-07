@@ -5,12 +5,50 @@ package oops;
 import java.util.Scanner;
 
 class MyStudent{
-	int id;
-	String name;
-	String courseName;
-	int courseDuration;
-	static Scanner scanner = new Scanner(System.in); 
-	//scanner gets created only once when the class loads
+	
+	private int id;
+	private String name;
+	private String courseName;
+	private int courseDuration;
+	private static final Scanner scanner = new Scanner(System.in);  // class variable 
+	static final int REG_FEES = 1000;
+	
+	private static final int DISCOUNT = 10;
+	// constants should have their names always in capital
+	// final means value in this variable is constant, it cant be changed
+	// scanner gets created only once when the class loads
+	
+	// getter
+	int getId() {
+		return id;
+	}
+	String getName() {
+		return name;
+	}
+	String getCourseName() {
+		return courseName;
+	}
+	int getCourseDuration() {
+		return courseDuration;
+	}
+	
+	// setter
+	
+	void setName(String name) {
+		this.name = name;
+	}
+	void setCourseName(String courseName) {
+		this.courseName = courseName;
+	}
+	void setCourseDuration(int courseDuration) {
+		if(courseDuration > 0) {
+			this.courseDuration = courseDuration;
+		}
+		else {
+			System.out.println("courseDuration cannot be negative");
+		}
+	}
+	
 	
 	void showDetails() {
 		System.out.println("Id is " + id);
@@ -20,8 +58,9 @@ class MyStudent{
 //		System.out.println(scanner);
 	}
 	
-	void takeInput(int student_id, String student_name, String course, int duration) {
-		id = student_id;
+	void takeInput(int id, String student_name, String course, int duration) {
+		this.id = id; // here id is local variable
+		// this.id -> instance (object) variable
 		name = student_name;
 		courseName = course;
 		courseDuration = duration;
@@ -58,14 +97,29 @@ public class OOPSBackup {
 
 	public static void main(String[] args) {
 		
-		Scanner scanner = new Scanner(System.in);
+//		Scanner scanner = new Scanner(System.in);
+		
+		System.out.println("Registration fees is " + MyStudent.REG_FEES);
 		
 		MyStudent obj1 = new MyStudent();
 //		obj1.takeInput(101, "Ram", "Core java", 4);
 //		obj1.takeInputUsingScanner();
-		obj1.takeInput2(-101, "Ram", "Core Java", 4);
+		obj1.takeInput2(101, "Ram", "Core Java", 4);
+		obj1.setName("Ram Kumar");
+		obj1.setCourseDuration(6);
+		
+//		obj1.id = 101;
 		obj1.showDetails();
-		System.out.println(obj1.id);
+//		System.out.println(obj1.id);
+		
+		
+		
+		System.out.println("Ram's id is " + obj1.getId());
+//		int x = obj1.REG_FEES;
+		
+//		int id = 100;
+//		System.out.println(id);
+//		System.out.println(obj1.id);
 		
 //		obj1.id = 101;
 //		obj1.name = "Ram";
