@@ -6,14 +6,16 @@ import java.util.Scanner;
 
 class MyStudent{
 	
+	private static final String COMPANY_NAME = "XYZ Pvt. Ltd.";
+	
 	private int id;
 	private String name;
 	private String courseName;
 	private int courseDuration;
-	private static final Scanner scanner = new Scanner(System.in);  // class variable 
+	private static Scanner scanner = new Scanner(System.in);  // class variable 
 	static final int REG_FEES = 1000;
 	
-	private static final int DISCOUNT = 10;
+	
 	// constants should have their names always in capital
 	// final means value in this variable is constant, it cant be changed
 	// scanner gets created only once when the class loads
@@ -91,6 +93,7 @@ class MyStudent{
 		System.out.println("Enter course duration : ");
 		courseDuration = scanner.nextInt();
 	}
+	private static final int DISCOUNT = 10;
 }
 
 public class OOPSBackup {

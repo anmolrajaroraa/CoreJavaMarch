@@ -1,4 +1,4 @@
-package NewFolder;
+package newFolder;
 
 public class ArrayDemoPart2 {
 

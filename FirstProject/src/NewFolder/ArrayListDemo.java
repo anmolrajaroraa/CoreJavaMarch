@@ -1,4 +1,4 @@
-package NewFolder;
+package newFolder;
 
 import java.util.ArrayList;
 
