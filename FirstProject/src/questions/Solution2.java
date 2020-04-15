@@ -23,7 +23,7 @@ class EmployeeSalarySlip {
 	private int TA;
 	private int MA;
 	private int PF;
-	private int EMI = 1500; // by default, 0 is assigned
+	private int EMI; // by default, 0 is assigned
 	private int tax;
 	private int grossSalary;
 	private int netSalary;
@@ -181,10 +181,27 @@ class EmployeeSalarySlip {
 	public void setEmployee_id(short employee_id) {
 		this.employee_id = employee_id;
 	}
-
-	public void takeInput(int employee_id, String name, String designation, int month, int year, int basicSalary,
+	
+	/** Don't let anyone instantiate this class */
+//	private EmployeeSalarySlip() {
+		/* default constructor - by default present in every class
+		 creates empty object */
+		// new creates memory for instance variables
+//	}
+	
+	private EmployeeSalarySlip() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	// If you create a parameterised constructor then the default condtructor created
+	// by Java is killed automatically
+	// But if you want to use both default constructor and parameterised then you 
+	// need to define both of them
+	// Even if constructor never returns anything then also we dont write 
+	// void for its return type
+	
+	public EmployeeSalarySlip(int employee_id, String name, String designation, int month, int year, int basicSalary,
 			boolean loanTaken) {
-
 		this.employee_id = (short)employee_id;
 		this.name = name;
 		this.designation = designation;
@@ -201,8 +218,30 @@ class EmployeeSalarySlip {
 		setTax();
 		setGrossSalary();
 		setNetSalary();
-
 	}
+	
+
+//	public void takeInput(int employee_id, String name, String designation, int month, int year, int basicSalary,
+//			boolean loanTaken) {
+//
+//		this.employee_id = (short)employee_id;
+//		this.name = name;
+//		this.designation = designation;
+//		this.month = (byte)month;
+//		this.year = (byte)year;
+//		this.basicSalary = basicSalary;
+//		this.loanTaken = loanTaken;
+//		setHRA();
+//		setDA();
+//		setTA();
+//		setMA();
+//		setPF();
+//		setEMI();
+//		setTax();
+//		setGrossSalary();
+//		setNetSalary();
+//
+//	}
 	
 	public void printSalarySlip() {
 		System.out.println(EmployeeSalarySlip.COMPANY_NAME);
@@ -233,16 +272,16 @@ public class Solution2 {
 
 	public static void main(String[] args) {
 
-		EmployeeSalarySlip employee1 = new EmployeeSalarySlip();
-		employee1.takeInput(101, "Ram", "Developer", 1, 0, 25000, false);
+		EmployeeSalarySlip employee1 = new EmployeeSalarySlip(101, "Ram", "Developer", 1, 0, 25000, false);
+//		employee1.takeInput(101, "Ram", "Developer", 1, 0, 25000, false);
 		employee1.printSalarySlip();
 		
 //		System.out.println("Basic salary of Ram is " + employee1.getBasicSalary());
 //		System.out.println("Gross salary of Ram is " + employee1.getGrossSalary());
 //		System.out.println("Net salary of Ram is " + employee1.getNetSalary());
 
-		EmployeeSalarySlip employee2 = new EmployeeSalarySlip();
-		employee2.takeInput(102, "Shyam", "Sr. Developer", 1, 2, 50000, true);
+		EmployeeSalarySlip employee2 = new EmployeeSalarySlip(102, "Shyam", "Sr. Developer", 1, 2, 50000, true);
+//		employee2.takeInput(102, "Shyam", "Sr. Developer", 1, 2, 50000, true);
 		employee2.printSalarySlip();
 		
 //		System.out.println("Basic salary of Shyam is " + employee2.getBasicSalary());
@@ -253,6 +292,9 @@ public class Solution2 {
 //		obj.setHRA();
 //		obj.setEmployee_id(-101);
 //		obj.getHRA();
+		
+//		EmployeeSalarySlip employee3 = new EmployeeSalarySlip();
+//		employee3.EmployeeSalarySlip(employee_id, name, designation, month, year, basicSalary, loanTaken);
 
 		/*
 		 * Assign Salary Slip

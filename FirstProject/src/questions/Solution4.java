@@ -15,6 +15,7 @@ public class Solution4 {
 		}
 		
 		int max = 0;
+//		boolean isMaxSet = false;
 		int hourGlassStartingIndexI = 0;
 		int hourGlassStartingIndexJ = 0;
 		
@@ -22,6 +23,21 @@ public class Solution4 {
 			for(int j = 0; j < arr[i].length - 2; j++) {
 				int sum = arr[i][j] + arr[i][j+1] + arr[i][j+2] + arr[i+1][j+1] + arr[i+2][j] + arr[i+2][j+1] + arr[i+2][j+2];
 				System.out.println(sum + " at " + i + " " + j);
+				
+//				if(!isMaxSet) {
+//					max = sum;
+//					isMaxSet = true;
+//				}
+				
+				if(i == 0 && j == 0) {
+					max = sum;
+				}
+				
+//				if(isMaxSet == false) {
+//					max = sum;
+//					isMaxSet = true;
+//				}
+				
 				if(sum > max) {
 					max = sum;
 					hourGlassStartingIndexI = i;
