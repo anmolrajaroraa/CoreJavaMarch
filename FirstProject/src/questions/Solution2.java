@@ -1,6 +1,24 @@
 package questions;
 
 class EmployeeSalarySlip {
+	
+	
+	//init (initialisation) block
+	// init block is used to do something before construtor is called
+	// it always runs whenever the class is instantiated (object is created) and it runs before the cons
+	
+	{
+		System.out.println("Init block fired...");
+//		connection = getConnection();
+//		companyName = connection.getCompanyName();
+		System.out.println("Connection established...");
+		System.out.println("fetching the company name...");
+	}
+	
+	{
+		System.out.println("Init block 2 fired...");
+	}
+	
 	// pool object is consuming 26 bytes (single object) // 8 byte in every object
 	// static is used so that companyName variable is only created once at the time
 	// of class loading and not created in every object
@@ -10,10 +28,13 @@ class EmployeeSalarySlip {
 	// variable
 	// final can also be used to block only set action (makes variable constant)
 	// private static String companyName = "XYZ Pvt. Ltd.";
-	static final String COMPANY_NAME = "XYZ Pvt. Ltd.";
+//	static final String COMPANY_NAME = "XYZ Pvt. Ltd.";
+	private String companyName;
 	private short employee_id;
 	private String name;
 	private String designation;
+	
+	/** No. of months from which the employee has been working in this firm */
 	private byte month;
 	private byte year;
 	private int basicSalary;
@@ -120,6 +141,8 @@ class EmployeeSalarySlip {
 		return netSalary;
 	}
 
+	// Assign HRA (10% of salary)
+	/** This function will assign House Rent Allowance based on Basic Salary of employee */
 	private void setHRA() {
 		HRA = (int) (0.10 * basicSalary);
 	}
@@ -190,8 +213,17 @@ class EmployeeSalarySlip {
 //	}
 	
 	private EmployeeSalarySlip() {
-		// TODO Auto-generated constructor stub
+		System.out.println("Default cons called ...");
+//		companyName = "XYZ Pvt. Ltd."; // you are going to read this value from DB always
+//		this.name = name;
 	}
+	
+	// Two benefits of private cons- 
+	// 1. If you want to stop instantition of class (stop object creation) then make the 
+	// default constructor as private
+	// 2. If you have a parameterised constructor then we can make a call to private 
+	// default cons using this(), and hence we can assign some default values to our variables
+	
 	
 	// If you create a parameterised constructor then the default condtructor created
 	// by Java is killed automatically
@@ -201,7 +233,14 @@ class EmployeeSalarySlip {
 	// void for its return type
 	
 	public EmployeeSalarySlip(int employee_id, String name, String designation, int month, int year, int basicSalary,
-			boolean loanTaken) {
+			boolean loanTaken, String companyName) {
+		this();
+//		setHRA();
+		System.out.println("Constructor fired..");
+		
+//		companyName = "XYZ Pvt. Ltd.";
+		
+		if(!companyName.equals("")) this.companyName = companyName;
 		this.employee_id = (short)employee_id;
 		this.name = name;
 		this.designation = designation;
@@ -218,6 +257,10 @@ class EmployeeSalarySlip {
 		setTax();
 		setGrossSalary();
 		setNetSalary();
+	}
+	
+	{
+		System.out.println("Init block 3 fired...");
 	}
 	
 
@@ -244,7 +287,9 @@ class EmployeeSalarySlip {
 //	}
 	
 	public void printSalarySlip() {
-		System.out.println(EmployeeSalarySlip.COMPANY_NAME);
+
+//		System.out.println(EmployeeSalarySlip.COMPANY_NAME);
+		System.out.println(companyName);
 		System.out.println();
 		System.out.println("Employee name - " + name);
 		System.out.println("Employee id - " + employee_id);
@@ -272,7 +317,7 @@ public class Solution2 {
 
 	public static void main(String[] args) {
 
-		EmployeeSalarySlip employee1 = new EmployeeSalarySlip(101, "Ram", "Developer", 1, 0, 25000, false);
+		EmployeeSalarySlip employee1 = new EmployeeSalarySlip(101, "Ram", "Developer", 1, 0, 25000, false, "XYZ Inc.");
 //		employee1.takeInput(101, "Ram", "Developer", 1, 0, 25000, false);
 		employee1.printSalarySlip();
 		
@@ -280,9 +325,13 @@ public class Solution2 {
 //		System.out.println("Gross salary of Ram is " + employee1.getGrossSalary());
 //		System.out.println("Net salary of Ram is " + employee1.getNetSalary());
 
-		EmployeeSalarySlip employee2 = new EmployeeSalarySlip(102, "Shyam", "Sr. Developer", 1, 2, 50000, true);
+		EmployeeSalarySlip employee2 = new EmployeeSalarySlip(102, "Shyam", "Sr. Developer", 1, 2, 50000, true, "");
 //		employee2.takeInput(102, "Shyam", "Sr. Developer", 1, 2, 50000, true);
 		employee2.printSalarySlip();
+		
+		{
+			System.out.println("Main init block...");
+		}
 		
 //		System.out.println("Basic salary of Shyam is " + employee2.getBasicSalary());
 //		System.out.println("Gross salary of Shyam is " + employee2.getGrossSalary());
