@@ -1,3 +1,5 @@
+package questions;
+
 class Test{
 
     // static int disp(){
@@ -53,11 +55,11 @@ class Test{
         }
 
 
-        double a = 295.04; -> int -> 295 ->  byte 
-        295 - 127 = 168
-        -128 ..........    -1 (128 th value) -> 40 -> 0 ........ 40th value (39)
+        double a = 295.04; //-> int -> 295 ->  byte 
+//        295 - 127 = 168
+//        -128 ..........    -1 (128 th value) -> 40 -> 0 ........ 40th value (39)
         int b = 300;
-        byte c = (byte)a;  //around 50
+        byte c = (byte) a;  //around 50
         byte d = (byte) b; // around 50
         System.out.println(c + " " + d);
     }

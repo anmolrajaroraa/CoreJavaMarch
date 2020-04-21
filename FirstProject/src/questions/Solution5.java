@@ -1,5 +1,7 @@
 package questions;
 
+import java.util.LinkedList;
+
 public class Solution5 {
 
 	public static void main(String[] args) {
@@ -45,30 +47,7 @@ public class Solution5 {
 //				Math.abs(1-10) -> 9
 //				Math.abs(10-1) -> 9
 //				print maxDiff
+		
 			}
 //		}
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-
 	}
-
-}
