@@ -10,11 +10,8 @@ class Node{
 	public Node(int data) {
 		this.data = data;
 	}
-}
-
-public class MyLinkedList {
 	
-	public static Node insert(int element, Node head) {
+public static Node insert(int element, Node head) {
 		
 		if(head == null) {
 			Node node = new Node(element);
@@ -27,6 +24,7 @@ public class MyLinkedList {
 				current = current.next;
 			}
 			Node node = new Node(element);
+			node = head;
 			current.next = node;
 			return head;
 		}
@@ -42,6 +40,11 @@ public class MyLinkedList {
 		}
 		
 	}
+}
+
+public class MyLinkedList {
+	
+	
 
 	public static void main(String[] args) {
 		
@@ -61,11 +64,11 @@ public class MyLinkedList {
 //			System.out.println(N);
 			
 			int element = scanner.nextInt();
-			head = insert(element, head);
+			head = Node.insert(element, head);
 			
 		}
 		
-		display(head);
+		 Node.display(head);
 		
 		System.out.println(head);
 		
