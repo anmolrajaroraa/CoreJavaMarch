@@ -41,7 +41,8 @@ public class Solution6 {
 		
 		Solution6 obj = new Solution6("first node");
 		obj.exceptionDemo(1, "first node");
-		obj.exceptionDemo(100, "second node");
+		obj.exceptionDemo(100, "first node");
+		obj.exceptionDemo(1, "second node");
 		
 		System.out.println("Everything is still working even after some error occured...");
 

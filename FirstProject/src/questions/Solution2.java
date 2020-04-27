@@ -1,5 +1,8 @@
 package questions;
 
+import java.util.Locale;
+import java.util.ResourceBundle;
+
 class EmployeeSalarySlip {
 	
 	
@@ -11,8 +14,23 @@ class EmployeeSalarySlip {
 		System.out.println("Init block fired...");
 //		connection = getConnection();
 //		companyName = connection.getCompanyName();
-		System.out.println("Connection established...");
+//		System.out.println("Connection established...");
 		System.out.println("fetching the company name...");
+		
+		ResourceBundle config = ResourceBundle.getBundle("config");
+		companyName = config.getString("companyName");
+//		companyName = "\u0906\u0930\u094B\u0917\u094D\u092F \u0938\u0947\u0924\u0941";
+		
+		// Internationalization - I18N
+		// Login - प्रवेश करें 
+		// दर्ज करें 
+		// दोस्त बनाएँ 
+		// config_en_US
+		// config_hn_IN
+		// organization - UK, US - organisation
+		// color, colour
+		// program, programme
+		
 	}
 	
 	{
