@@ -1,6 +1,5 @@
 package questions;
 
-import java.util.Locale;
 import java.util.ResourceBundle;
 
 class EmployeeSalarySlip {
@@ -10,6 +9,13 @@ class EmployeeSalarySlip {
 	// init block is used to do something before construtor is called
 	// it always runs whenever the class is instantiated (object is created) and it runs before the cons
 	
+	// static members can only refer to other static members
+	
+	static{
+		ResourceBundle config = ResourceBundle.getBundle("config");
+		companyName = config.getString("companyName");
+	}
+	
 	{
 		System.out.println("Init block fired...");
 //		connection = getConnection();
@@ -17,8 +23,8 @@ class EmployeeSalarySlip {
 //		System.out.println("Connection established...");
 		System.out.println("fetching the company name...");
 		
-		ResourceBundle config = ResourceBundle.getBundle("config");
-		companyName = config.getString("companyName");
+//		ResourceBundle config = ResourceBundle.getBundle("config");
+//		companyName = config.getString("companyName");
 //		companyName = "\u0906\u0930\u094B\u0917\u094D\u092F \u0938\u0947\u0924\u0941";
 		
 		// Internationalization - I18N
@@ -47,7 +53,7 @@ class EmployeeSalarySlip {
 	// final can also be used to block only set action (makes variable constant)
 	// private static String companyName = "XYZ Pvt. Ltd.";
 //	static final String COMPANY_NAME = "XYZ Pvt. Ltd.";
-	private String companyName;
+	private static String companyName;
 	private short employee_id;
 	private String name;
 	private String designation;
@@ -67,13 +73,17 @@ class EmployeeSalarySlip {
 	private int grossSalary;
 	private int netSalary;
 
-	public String getName() {
+	public String Name() {
 		return name;
 	}
+	
+//	employee.Name(); -> name -> getter
 
-	public void setName(String name) {
+	public void Name(String name) {
 		this.name = name;
 	}
+	
+//	employee.Name("Ram"); -> void -> setter
 
 	public String getDesignation() {
 		return designation;
@@ -304,6 +314,24 @@ class EmployeeSalarySlip {
 //
 //	}
 	
+	// fn names can be same but signature (no of parameters or there should differ)
+	// should be different- ploymorphism - function overloading
+	
+	public void printSalarySlip(String date) {
+		System.out.println(date);
+		printSalarySlip();
+	}
+	
+	public void printSalarySlip(String date, String time) {
+		System.out.println(date + " - " + time);
+		printSalarySlip();
+	}
+	
+	public void printSalarySlip(String date, int time) {
+		System.out.println(date + " - " + time);
+		printSalarySlip();
+	}
+	
 	public void printSalarySlip() {
 
 //		System.out.println(EmployeeSalarySlip.COMPANY_NAME);
@@ -338,6 +366,9 @@ public class Solution2 {
 		EmployeeSalarySlip employee1 = new EmployeeSalarySlip(101, "Ram", "Developer", 1, 0, 25000, false, "XYZ Inc.");
 //		employee1.takeInput(101, "Ram", "Developer", 1, 0, 25000, false);
 		employee1.printSalarySlip();
+		employee1.printSalarySlip("30-04-2020");
+		employee1.printSalarySlip("30-04-2020", 1200);
+		employee1.printSalarySlip("30-04-2020", "12:00");
 		
 //		System.out.println("Basic salary of Ram is " + employee1.getBasicSalary());
 //		System.out.println("Gross salary of Ram is " + employee1.getGrossSalary());

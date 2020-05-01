@@ -13,7 +13,7 @@ public class ExceptionHandling4 {
 	
 	public static void verifyPin(int pin) throws InputMismatchException {
 		
-		if(correctPin != pin) throw new InputMismatchException("Incorrect PIN");
+		if(correctPin != pin) throw new InputMismatchException("Invalid PIN");
 		
 	}
 	
@@ -50,11 +50,14 @@ public class ExceptionHandling4 {
 				withdraw();
 			}
 			catch(InputMismatchException e) {
-				System.out.println("InputMismatch - " + e);
+				System.out.println("InputMismatch - Invalid input - " + e.getMessage());
+				scanner.nextLine();
 			}
 			catch(ArithmeticException e) {
-				System.out.println("Arithmetic - " + e);
+//				System.out.println("Arithmetic - " + e);
+				System.out.println(e.getClass().getSimpleName() + " - " + e.getMessage());
 			}
+			
 			catch(Exception e) {
 				System.out.println(e);
 			}
