@@ -15,6 +15,7 @@ class SavingsAccount extends Account2{
 	int roi; // -> 4 bytes = 42 bytes for sa object
 }
 
+// embedding of objects
 class Customer2{
 	Bank obj;
 	Account2 acc;
