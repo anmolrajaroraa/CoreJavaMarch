@@ -51,6 +51,7 @@ public class ArrayListDemo {
 		subjects.add("Computer Science");
 		subjects.add("Chemistry");
 		subjects.add("Physics");
+		subjects.add("Python");
 		
 		subjects.remove(4);
 //		subjects.add(true);
