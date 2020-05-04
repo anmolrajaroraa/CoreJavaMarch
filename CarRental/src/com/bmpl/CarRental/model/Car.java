@@ -1,7 +1,7 @@
 package com.bmpl.CarRental.model;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class Car {
 	
@@ -60,13 +60,38 @@ public class Car {
 		cars.add(new Car(vehicleNumber, model, seatingCapacity, rentPerDay));
 	}
 	
-	public String bookCar(String customerName, long customerPhoneNo, Date issueDate, Date returnDate) {
-		for(BookingStatus booking : bookings) {
-			if(issueDate.compareTo(booking.getIssueDate()) > 0 && issueDate.compareTo(booking.getReturnDate()) < 0) {
-				return "Car is already booked! Please check out another car or try booking for some other date...";
+	public static ArrayList<Car> showCarsAvailableForBooking(LocalDate newIssueDate, LocalDate newReturnDate) {
+		ArrayList<Car> availableCars = new ArrayList<>();
+		for(Car car : cars) {
+			if(verifyBookingDates(newIssueDate, newReturnDate, car.bookings)) availableCars.add(car);
+		}
+		return availableCars;
+	}
+	
+	public static boolean verifyBookingDates(LocalDate newIssueDate, LocalDate newReturnDate, 
+			ArrayList<BookingStatus> bookings) {
+		
+		if(newIssueDate.compareTo( LocalDate.now() ) >= 0) {
+			for( BookingStatus booking : bookings) {	
+				if(newIssueDate.compareTo(booking.getIssueDate()) < 0 || 
+						newIssueDate.compareTo(booking.getReturnDate()) > 0) {
+					if(newReturnDate.compareTo(booking.getIssueDate()) < 0 || 
+							newReturnDate.compareTo(booking.getReturnDate()) > 0) {
+						return true;
+					}
+				}
 			}
 		}
-		return "";
+		return false;
+	}
+	
+	public String bookCar(String customerName, long customerPhoneNo, LocalDate issueDate, LocalDate returnDate) {
+		if(verifyBookingDates(issueDate, returnDate, bookings)) {
+			BookingStatus booking = new BookingStatus(customerName, customerPhoneNo, issueDate, returnDate);
+			bookings.add(booking);
+			return "Booking Done for " + customerName + " from " + issueDate + " to " + returnDate;
+		}
+		return "Booking cannot be made from " + issueDate + " to " + returnDate;
 	}
 	
 }
@@ -76,10 +101,12 @@ public class Car {
 // addNewCar()
 // Book a specific car based on its availability. A car can have multiple bookings.
 
+// Bookings already existing
 //6 May - 10 May
 //16 May - 17 May
 //20 May - 20 May
 
-//10 May > 8 May > 6 May -> greater than 0 
+// Issue date < 6 May -> 10 May < Issue date
 
-//18 May
+// New booking to be done
+// 8 May - 10 May
