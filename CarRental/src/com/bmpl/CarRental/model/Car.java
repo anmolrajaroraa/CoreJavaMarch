@@ -68,21 +68,41 @@ public class Car {
 		return availableCars;
 	}
 	
-	public static boolean verifyBookingDates(LocalDate newIssueDate, LocalDate newReturnDate, 
+	public static ArrayList<Car> showCarsAvailableForBooking(int seatingCapacityFilter){
+		ArrayList<Car> availableCars = new ArrayList<>();
+		for(Car car : cars) {
+			if(car.seatingCapacity == seatingCapacityFilter) availableCars.add(car);
+		}
+		return availableCars;
+	}
+	
+	public static ArrayList<Car> showCarsAvailableForBooking(int minRent, int maxRent){
+		ArrayList<Car> availableCars = new ArrayList<>();
+		for(Car car : cars) {
+			if(car.rentPerDay <= maxRent && car.rentPerDay >= minRent) availableCars.add(car);
+		}
+		return availableCars;
+	}
+	
+	private static boolean verifyBookingDates(LocalDate newIssueDate, LocalDate newReturnDate, 
 			ArrayList<BookingStatus> bookings) {
 		
-		if(newIssueDate.compareTo( LocalDate.now() ) >= 0) {
-			for( BookingStatus booking : bookings) {	
-				if(newIssueDate.compareTo(booking.getIssueDate()) < 0 || 
-						newIssueDate.compareTo(booking.getReturnDate()) > 0) {
-					if(newReturnDate.compareTo(booking.getIssueDate()) < 0 || 
-							newReturnDate.compareTo(booking.getReturnDate()) > 0) {
-						return true;
-					}
-				}
+		if(newReturnDate.compareTo(newIssueDate) < 0 || newIssueDate.compareTo(LocalDate.now()) < 0) {
+			return false;
+		}
+		
+		for(BookingStatus booking : bookings) {
+			if(booking.getIssueDate().compareTo(newIssueDate) > 0 && 
+					booking.getIssueDate().compareTo(newReturnDate) < 0) {
+				return false;
+			}
+			if(booking.getReturnDate().compareTo(newIssueDate) > 0 && 
+					booking.getReturnDate().compareTo(newReturnDate) < 0) {
+				return false;
 			}
 		}
-		return false;
+		
+		return true;		
 	}
 	
 	public String bookCar(String customerName, long customerPhoneNo, LocalDate issueDate, LocalDate returnDate) {
@@ -100,6 +120,7 @@ public class Car {
 // Booking status of these cars include the customer details (name, phone no), issue date and return date of the car
 // addNewCar()
 // Book a specific car based on its availability. A car can have multiple bookings.
+// Show cars that are available to book on a date, seating capacity or other filters 
 
 // Bookings already existing
 //6 May - 10 May
