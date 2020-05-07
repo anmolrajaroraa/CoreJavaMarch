@@ -11,15 +11,18 @@ public class Main {
 	public static void main(String[] args) {
 		
 		Car.addNewCar("DL2CAR0007", "Swift Dzire", 5, 1000);
+		Car.addNewCar("DL2CAR0108", "Mercedes Benz A-Class", 5, 5000);
 		System.out.println(Car.getCars());
 		Car car = Car.getCars().get(0);
-		System.out.println(car.getModel());
-		System.out.println(car.getVehicleNumber());
-		System.out.println(car.getBookings());
-		System.out.println(car.getRentPerDay());
-		System.out.println(car.getSeatingCapacity());
+		Car car2 = Car.getCars().get(1);
+		System.out.println(car.getDetails());
+//		System.out.println(car.getModel());
+//		System.out.println(car.getVehicleNumber());
+//		System.out.println(car.getBookings());
+//		System.out.println(car.getRentPerDay());
+//		System.out.println(car.getSeatingCapacity());
 		
-		String message = car.bookCar("Ram Kumar", 123456789, LocalDate.of(2020, 5, 6), LocalDate.of(2020, 5, 10));
+		String message = car.bookCar("Ram Kumar", 123456789, LocalDate.of(2020, 5, 16), LocalDate.of(2020, 5, 20));
 		System.out.println(message);
 		
 		System.out.println(car.getBookings());
@@ -54,6 +57,11 @@ public class Main {
 		
 		System.out.println(Car.showCarsAvailableForBooking(LocalDate.of(2020, 5, 11), LocalDate.of(2020, 5, 11), 500, 1000, 5));
 		
+		System.out.println(car.getDetails());
+		System.out.println(car2.getDetails());
+		System.out.println(Car.getCars());
+		car2.deleteCar();
+		System.out.println(Car.getCars());
 	}
 
 }

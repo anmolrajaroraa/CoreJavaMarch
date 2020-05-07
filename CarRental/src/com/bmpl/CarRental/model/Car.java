@@ -18,7 +18,9 @@ public class Car {
 	}
 
 	public void setSeatingCapacity(byte seatingCapacity) {
+//		if(bookings.size() == 0) {
 		this.seatingCapacity = seatingCapacity;
+//		}
 	}
 
 	public short getRentPerDay() {
@@ -26,7 +28,9 @@ public class Car {
 	}
 
 	public void setRentPerDay(short rentPerDay) {
+//		if(bookings.size() == 0) {
 		this.rentPerDay = rentPerDay;
+//		}
 	}
 
 	public static ArrayList<Car> getCars() {
@@ -49,15 +53,11 @@ public class Car {
 		this.bookings = bookings;
 	}
 
-	private Car(String vehicleNumber, String model, int seatingCapacity, int rentPerDay) {
+	public Car(String vehicleNumber, String model, int seatingCapacity, int rentPerDay) {
 		this.vehicleNumber = vehicleNumber;
 		this.model = model;
 		this.seatingCapacity = (byte)seatingCapacity;
 		this.rentPerDay = (short)rentPerDay;
-	}
-	
-	public static void addNewCar(String vehicleNumber, String model, int seatingCapacity, int rentPerDay) {
-		cars.add(new Car(vehicleNumber, model, seatingCapacity, rentPerDay));
 	}
 	
 	public static ArrayList<Car> showCarsAvailableForBooking(LocalDate newIssueDate, LocalDate newReturnDate) {
@@ -145,7 +145,7 @@ public class Car {
 		availableCars.clear();
 		
 		for(Car car : availableCarsAfterMultipleFilters) {
-			if(car.rentPerDay <= maxRent && car.rentPerDay >= minRent) 
+			if(car.seatingCapacity == seatingCapacityFilter) 
 				availableCars.add(car);
 		}
 		
@@ -189,6 +189,10 @@ public class Car {
 // addNewCar()
 // Book a specific car based on its availability. A car can have multiple bookings.
 // Show cars that are available to book on a date, seating capacity or other filters 
+// Using car model, show the details of a particular car and its currently active booking
+// Update / delete a car from the system and ensure that the car is not already booked.
+// Build functions to update and delete a rental car object while ensuring the condition 
+// that update or delete operations are not allowed in case the status of the car is 'booked'.
 
 // Bookings already existing
 //6 May - 10 May
