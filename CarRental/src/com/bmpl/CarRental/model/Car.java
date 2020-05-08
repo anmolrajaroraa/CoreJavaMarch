@@ -60,14 +60,6 @@ public class Car {
 		this.rentPerDay = (short)rentPerDay;
 	}
 	
-	public static ArrayList<Car> showCarsAvailableForBooking(LocalDate newIssueDate, LocalDate newReturnDate) {
-		ArrayList<Car> availableCars = new ArrayList<>();
-		for(Car car : cars) {
-			if(verifyBookingDates(newIssueDate, newReturnDate, car.bookings)) availableCars.add(car);
-		}
-		return availableCars;
-	}
-	
 	public static ArrayList<Car> showCarsAvailableForBooking(int seatingCapacityFilter){
 		
 		ArrayList<Car> availableCars = new ArrayList<>();
@@ -150,36 +142,6 @@ public class Car {
 		}
 		
 		return availableCars;
-	}
-	
-	private static boolean verifyBookingDates(LocalDate newIssueDate, LocalDate newReturnDate, 
-			ArrayList<BookingStatus> bookings) {
-		
-		if(newReturnDate.compareTo(newIssueDate) < 0 || newIssueDate.compareTo(LocalDate.now()) < 0) {
-			return false;
-		}
-		
-		for(BookingStatus booking : bookings) {
-			if(booking.getIssueDate().compareTo(newIssueDate) > 0 && 
-					booking.getIssueDate().compareTo(newReturnDate) < 0) {
-				return false;
-			}
-			if(booking.getReturnDate().compareTo(newIssueDate) > 0 && 
-					booking.getReturnDate().compareTo(newReturnDate) < 0) {
-				return false;
-			}
-		}
-		
-		return true;		
-	}
-	
-	public String bookCar(String customerName, long customerPhoneNo, LocalDate issueDate, LocalDate returnDate) {
-		if(verifyBookingDates(issueDate, returnDate, bookings)) {
-			BookingStatus booking = new BookingStatus(customerName, customerPhoneNo, issueDate, returnDate);
-			bookings.add(booking);
-			return "Booking Done for " + customerName + " from " + issueDate + " to " + returnDate;
-		}
-		return "Booking cannot be made from " + issueDate + " to " + returnDate;
 	}
 	
 }
