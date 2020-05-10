@@ -17,7 +17,6 @@ class SavingsAccount extends Account2{
 
 // embedding of objects
 class Customer2{
-	Bank obj;
 	Account2 acc;
 	SavingsAccount sa;
 }
