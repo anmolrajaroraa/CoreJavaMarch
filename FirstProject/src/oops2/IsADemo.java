@@ -5,7 +5,7 @@ abstract class Account{
 	long accountNo;
 	String customerName;
 	
-	void withdraw() {
+	final void withdraw() {
 		System.out.println("Account Withdraw...");
 		System.out.println("Verify pin...");
 	}
@@ -53,6 +53,9 @@ class SavingsAccount extends Account{
 	void showPAN() {
 		System.out.println("Show PAN card please...");
 	}
+//	void withdraw() {
+//		
+//	}
 	@Override
 	void someFn() {
 		// TODO Auto-generated method stub
@@ -111,7 +114,13 @@ public class IsADemo {
 	MathOperations obj = new MathOperations();
 }
 
+// final makes our variable constant
+// final disables the overriding of function
+// final disables inheritance of a class
+
 final class MathOperations{
+	final double PI = 3.14;
+	// final variable should be written in capital
 	void sqrt() {
 		
 	}
