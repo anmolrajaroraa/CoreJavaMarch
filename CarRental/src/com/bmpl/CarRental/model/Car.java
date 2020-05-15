@@ -41,7 +41,7 @@ public class Car {
 		return vehicleNumber;
 	}
 
-	public String getModel() {
+	protected String getModel() {
 		return model;
 	}
 

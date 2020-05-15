@@ -9,9 +9,14 @@ class EmployeeDetails{
 class EmployeeDetailsPlus extends EmployeeDetails{
 	int incentives;
 }
+class FreeLancer{
+	String projectName;
+	int incentives;
+	int hoursPerWeek;
+}
 class A{
 	int a;
-	EmployeeDetails getDetails() {
+	public Object getDetails() {
 		EmployeeDetails details = new EmployeeDetails();
 		details.department = "IT";
 		details.managerName = "Ram Kumar";
@@ -22,13 +27,23 @@ class A{
 }
 class B extends A{
 	int b;
-	EmployeeDetailsPlus getDetails() {
+	public EmployeeDetailsPlus getDetails() {
 		EmployeeDetailsPlus details = new EmployeeDetailsPlus();
 		details.department = "IT";
 		details.managerName = "Ram Kumar";
 		details.projectName = "NewProject";
 		details.floor = 9;
 		details.incentives = 10000;
+		return details;
+	}
+}
+class C extends A{
+	int c;
+	public FreeLancer getDetails() {
+		FreeLancer details = new FreeLancer();
+		details.projectName = "NewProject";
+		details.incentives = 10000;
+		details.hoursPerWeek = 40;
 		return details;
 	}
 }
@@ -52,3 +67,18 @@ public class IsADemo2 {
 // Protected
 // Default
 // Public
+
+// public abstract class ABC{
+
+// int a,b,c;
+
+// abstract void print(){
+// }
+
+// }
+
+// class XYZ{
+
+// int d,e;
+
+//}

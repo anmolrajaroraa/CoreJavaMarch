@@ -7,14 +7,22 @@ package Package1;
 
 public class A {
 	
-	private int x;
-	public int y = x + 1;
-	public int f = 10;
-	protected String cheatCode = "abcd";
+	private String x = "Car";
+	private String y = "Bike";
+	public String z = "Water cooler";
+//	public int f = 10;
+//	protected String cheatCode = "abcd";
 
-	protected void print() {
-		System.out.println(x);
-		System.out.println(y);
+//	private void print() {
+//		System.out.println(x);
+//		System.out.println(y);
+//	}
+	
+	protected void getCar() {
+		
+	}
+	protected void getBike() {
+		
 	}
 	
 }

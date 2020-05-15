@@ -41,6 +41,10 @@ public class BookingStatus {
 		this.returnDate = returnDate;
 	}
 	
+	public static void main(String[] args) {
+//		Car car = new Car();
+//		car.getModel();
+	}
 	
 	
 }
