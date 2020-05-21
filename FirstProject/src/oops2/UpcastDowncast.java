@@ -1,6 +1,16 @@
 package oops2;
 
 abstract class Shape{
+	int counter = 10;
+	static void getAvailableActions(){
+		System.out.println("draw rotate area perimeter");
+	}
+	static void getAvailableActions(String shapeName) {
+		if(shapeName.equals("circle"))
+			System.out.println("draw rotate area perimeter calculateDiameter");
+		else
+			System.out.println("draw rotate area perimeter calculateDiagnol");
+	}
 	void draw() {
 		System.out.println("Shape draw..");
 	}
@@ -16,6 +26,14 @@ abstract class Shape{
 }
 
 class Circle extends Shape{
+	int counter = 100;
+	
+	// static methods cannot be overridden because they are not binded with objects at runtime
+	// static methods can be overloaded
+	
+	static void getAvailableActions() {
+		System.out.println("draw rotate area perimeter calculateDiameter");
+	}
 	void draw() {
 		System.out.println("Circle draw using radius");
 	}
@@ -31,6 +49,7 @@ class Circle extends Shape{
 }
 
 class Rectangle extends Shape{
+	int counter = 1000;
 	void draw() {
 		System.out.println("Rectangle draw using length and breadth");
 	}
@@ -46,6 +65,7 @@ class Rectangle extends Shape{
 }
 
 class Square extends Shape{
+	int counter = 10000;
 	void draw() {
 		System.out.println("Square draw using same side");
 	}
@@ -66,7 +86,23 @@ public class UpcastDowncast {
 		shape.area();
 		shape.draw();
 		shape.perimeter();
-		shape.rotate();
+		shape.rotate();  // always overridden functions are called (child versions)
+		System.out.println(shape.counter);  // variables are accessed from the current casted class
+		if(shape instanceof Circle) {
+			Circle circle = (Circle)shape;
+			circle.calculateDiameter();
+			System.out.println(circle.counter);
+		}
+		else if(shape instanceof Rectangle) {
+			Rectangle rectangle = (Rectangle)shape;
+			rectangle.calculateDiagnol();
+			System.out.println(rectangle.counter);
+		}
+		else if(shape instanceof Square){
+			Square square = (Square)shape;
+			square.calculateDiagnol();
+			System.out.println(square.counter);
+		}
 	}
 
 	public static void main(String[] args) {
@@ -86,6 +122,10 @@ public class UpcastDowncast {
 		test(new Circle());
 		test(new Rectangle());
 		test(new Square());
+//		int a = (int)"ten";
+		
+		Shape.getAvailableActions();
+		Circle.getAvailableActions();
 		
 //		Circle circle = new Circle();
 //		circle.area();
