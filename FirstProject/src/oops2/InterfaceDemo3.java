@@ -1,12 +1,5 @@
 package oops2;
 
-import java.awt.event.KeyListener;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-
 // abstract class vs interface
 // abstract class is not 100% abstract
 // but interface is 100% abstract (till java 7)
@@ -32,10 +25,17 @@ import java.awt.event.WindowListener;
 // every value in interface is final static 
 
 interface StarPlayer{
-	void hide();
-	void fly();
+//	void hide();
+//	void fly();
 	void punch();
+	default public void hide() {
+		System.out.println("You cant see me");
+	}
+	default public void fly() {
+		System.out.println("Catch me if you can");
+	}
 	int MAX_POWER = 50;
+	int MIN_POWER = 5;
 }
 
 interface Player{
@@ -45,50 +45,42 @@ interface Player{
 	void punch();
 	void attack();
 	void defense();
-	void entry();
-	void startPower();
+	default void entry() {
+		System.out.println("Player will enter walking in some style ");
+	}
+	default public void startPower() {
+		System.out.println("Starting health will be 100 for each player");
+	}
 }
 
 // Mulltiple inheritance is allowed in Java But only in the case of 
 
 interface HybridPlayer extends Player, StarPlayer{
-	
-}
-
-abstract class CommonPlayer implements Player{
-	public void entry() {
-		System.out.println("Player will enter walking in some style ");
-	}
-	public void startPower() {
-		System.out.println("Starting health will be 100 for each player");
-	}
-	public void kick() {
-		System.out.println("Low kick");
+	default public void throwFire() {
+		System.out.println("I can throw fire...");
 	}
 }
 
-class Ryu extends CommonPlayer{
+//abstract class SuperPlayer implements StarPlayer{
+//	public void hide() {
+//		System.out.println("You cant see me");
+//	}
+//	public void fly() {
+//		System.out.println("Catch me if you can");
+//	}
+//}
 
-	@Override
-	public void punch() {
-		// TODO Auto-generated method stub
-		
-	}
+//abstract class CommonPlayer implements Player{
+//	static int a = 10;
+//	public void entry() {
+//		System.out.println("Player will enter walking in some style ");
+//	}
+//	public void startPower() {
+//		System.out.println("Starting health will be 100 for each player");
+//	}
+//}
 
-	@Override
-	public void attack() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void defense() {
-		// TODO Auto-generated method stub
-		
-	}
-	
-}
-class Honda extends CommonPlayer{
+class Bison implements Player, StarPlayer{
 
 	@Override
 	public void kick() {
@@ -116,28 +108,148 @@ class Honda extends CommonPlayer{
 	
 }
 
-class MyWindow extends WindowAdapter{
-	
+class Dhalsim implements HybridPlayer{
+
 	@Override
-	public void windowClosing(WindowEvent e) {
-		System.out.println("Show confirmation popup");
+	public void kick() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void punch() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void attack() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void defense() {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }
+
+class Ryu implements Player{
+
+	@Override
+	public void punch() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void attack() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void defense() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void kick() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}
+class Honda implements Player{
+
+	@Override
+	public void kick() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void punch() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void attack() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void defense() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}
+
+//class MyWindow extends WindowAdapter{
+//	
+//	@Override
+//	public void windowClosing(WindowEvent e) {
+//		System.out.println("Show confirmation popup");
+//	}
+//	
+//}
 
 public class InterfaceDemo3 {
 
 	public static void main(String[] args) {
 		
-//		WindowListener
-//		KeyListener
-//		MouseListener
-//		MouseMotionListener
+		Ryu ryu = new Ryu();  // implements only player
+		ryu.attack();
+		ryu.defense();
+		ryu.entry();
+		ryu.startPower();
+		ryu.punch();
+		ryu.kick();
 		
-		WindowAdapter
+		Bison bison = new Bison(); // implements player and starplayer
+		bison.attack();
+		bison.defense();
+		bison.entry();
+		bison.startPower();
+		bison.punch();
+		bison.kick();
+		bison.fly();
+		bison.hide();
 		
-		Ryu ryu = new Ryu();
-		Player player = new Honda();
+		Dhalsim dhalsim = new Dhalsim();  // implements hybrid player which in turn inherits player and star player
+		dhalsim.attack();
+		dhalsim.defense();
+		dhalsim.entry();
+		dhalsim.startPower();
+		dhalsim.punch();
+		dhalsim.kick();
+		dhalsim.fly();
+		dhalsim.hide();
+		dhalsim.throwFire();
+		
+		
+		
+		
+		
+		
+		
+		
+////		WindowListener
+////		KeyListener
+////		MouseListener
+////		MouseMotionListener
+//		
+////		WindowAdapter
+//		
+//		Ryu ryu = new Ryu();
+////		ryu.a;
+//		Player player = new Honda();
 
 	}
 
