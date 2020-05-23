@@ -23,10 +23,10 @@ public class MultiLevelInheritance {
 	public static void main(String[] args) {
 		
 		Z obj = new Z(40);
-//		X obj2 = obj;
+//		X obj2 = obj;  upcasting
 		
-		X obj2 = (X)new Z(100);
-		Z obj3 = (Z)obj2;
+		X obj2 = (X)new Z(100);  // up
+		Z obj3 = (Z)obj2;   // down
 		
 	}
 

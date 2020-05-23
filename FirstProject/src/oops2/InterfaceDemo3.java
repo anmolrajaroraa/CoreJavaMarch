@@ -56,6 +56,7 @@ interface Player{
 // Mulltiple inheritance is allowed in Java But only in the case of 
 
 interface HybridPlayer extends Player, StarPlayer{
+//	int MAX_POWER = 40;
 	default public void throwFire() {
 		System.out.println("I can throw fire...");
 	}
@@ -222,7 +223,7 @@ public class InterfaceDemo3 {
 		bison.fly();
 		bison.hide();
 		
-		Dhalsim dhalsim = new Dhalsim();  // implements hybrid player which in turn inherits player and star player
+		HybridPlayer dhalsim = new Dhalsim();  // implements hybrid player which in turn inherits player and star player
 		dhalsim.attack();
 		dhalsim.defense();
 		dhalsim.entry();
@@ -232,6 +233,7 @@ public class InterfaceDemo3 {
 		dhalsim.fly();
 		dhalsim.hide();
 		dhalsim.throwFire();
+		System.out.println();
 		
 		
 		
