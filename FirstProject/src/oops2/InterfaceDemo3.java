@@ -39,6 +39,7 @@ interface StarPlayer{
 }
 
 interface Player{
+	int MAX_POWER_OF_STAR = StarPlayer.MAX_POWER;
 	final static int MAX_POWER = 100;
 	int MIN_POWER = 10;
 	public abstract void kick();
@@ -233,7 +234,8 @@ public class InterfaceDemo3 {
 		dhalsim.fly();
 		dhalsim.hide();
 		dhalsim.throwFire();
-		System.out.println();
+		System.out.println(StarPlayer.MAX_POWER);
+		System.out.println(Player.MAX_POWER);
 		
 		
 		
