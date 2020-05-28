@@ -28,20 +28,29 @@ interface StarPlayer{
 //	void hide();
 //	void fly();
 	void punch();
+	
 	default public void hide() {
 		System.out.println("You cant see me");
 	}
 	default public void fly() {
 		System.out.println("Catch me if you can");
 	}
-	int MAX_POWER = 50;
+	public static final int MAX_POWER = 50;
 	int MIN_POWER = 5;
 }
 
 interface Player{
 	int MAX_POWER_OF_STAR = StarPlayer.MAX_POWER;
-	final static int MAX_POWER = 100;
+	int MAX_POWER = 100;
 	int MIN_POWER = 10;
+	
+	public static void showCharacteristics() {
+		System.out.println(MAX_POWER_OF_STAR);
+		System.out.println(MAX_POWER);
+		System.out.println(MIN_POWER);
+		System.out.println(StarPlayer.MIN_POWER);
+	}
+	
 	public abstract void kick();
 	void punch();
 	void attack();
@@ -83,6 +92,12 @@ interface HybridPlayer extends Player, StarPlayer{
 //}
 
 class Bison implements Player, StarPlayer{
+	
+	static int power;
+	
+	static void abc() {
+		int power = 100;
+	}
 
 	@Override
 	public void kick() {
@@ -236,6 +251,10 @@ public class InterfaceDemo3 {
 		dhalsim.throwFire();
 		System.out.println(StarPlayer.MAX_POWER);
 		System.out.println(Player.MAX_POWER);
+		System.out.println(Player.MAX_POWER);
+		System.out.println(StarPlayer.MIN_POWER);
+		
+		Player.showCharacteristics();
 		
 		
 		

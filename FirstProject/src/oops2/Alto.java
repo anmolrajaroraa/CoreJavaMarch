@@ -8,6 +8,11 @@ public class Alto implements Car{
 	void manualGears(int noOfGears) {
 		System.out.println("Manually change gears " + noOfGears);
 	}
+	protected Alto clone() {
+		return this.clone();
+	}
+	
+	
 	
 	@Override
 	public void window() {
