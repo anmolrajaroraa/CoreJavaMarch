@@ -17,6 +17,11 @@ public class ExceptionHandling4 {
 		
 	}
 	
+	/**
+	 * 
+	 * @throws InputMismatchException
+	 * @throws ArithmeticException
+	 */
 	public static void withdraw() throws InputMismatchException, ArithmeticException{
 		
 			System.out.println("Please enter your PIN");
@@ -47,15 +52,8 @@ public class ExceptionHandling4 {
 			System.out.println("Welcome to ABC Bank...");
 			
 			try {
+				int pin = scanner.nextInt();
 				withdraw();
-			}
-			catch(InputMismatchException e) {
-				System.out.println("InputMismatch - Invalid input - " + e.getMessage());
-				scanner.nextLine();
-			}
-			catch(ArithmeticException e) {
-//				System.out.println("Arithmetic - " + e);
-				System.out.println(e.getClass().getSimpleName() + " - " + e.getMessage());
 			}
 			
 			catch(Exception e) {

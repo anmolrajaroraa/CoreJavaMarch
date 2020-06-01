@@ -1,19 +1,33 @@
 package oops2;
 
-public class Driver {
+public class Driver extends Alto{
 
-	public static void main(String[] args) {
+	
+	public static void main(String[] args) throws CloneNotSupportedException {
 //		
 //		CarFactory cf = new  CarFactory();
 //		cf.getCar();
+		
+		Driver driver = new Driver();
+		driver.clone();
 		
 		Car car = CarFactory.getCar();
 		car.gears();
 		car.window();
 		
-		Alto alto  = new Alto();
-		Alto alto2 = alto;   // copy memory address
-		Alto alto3 = alto.clone();
+		Object alto  = new Alto();
+//		Alto alto2 = alto;   // copy memory address
+		alto.clone();
+		
+		
 	}
 
+}
+
+class CC extends BB{
+	protected int c = a;
+	public CC() {
+		// TODO Auto-generated constructor stub
+		abc();
+	}
 }

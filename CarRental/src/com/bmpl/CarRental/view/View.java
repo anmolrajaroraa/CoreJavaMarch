@@ -15,10 +15,10 @@ public class View {
 		System.out.println(operations.getDetails("DLABCD0002"));
 		System.out.println();
 		System.out.println(operations.getDetails("DLABCD0003"));
-		System.out.println(operations.bookCar("DLABCD0003", "Ram", "8285847775", "2020-05-16", "2020-05-20"));
+		System.out.println(operations.bookCar("DLABCD0003", "Ram", "8285847775", "2020-06-16", "2020-06-20"));
 		System.out.println();
 		System.out.println(operations.getDetails("DLABCD0003"));
-		System.out.println(operations.showCarsAvailableForBooking("2020-05-11", "2020-05-16"));
+		System.out.println(operations.showCarsAvailableForBooking("2020-06-11", "2020-06-16"));
 	}
 
 }

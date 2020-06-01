@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import oops2.BB;
+
 public class Demo {
 
 	public static void main(String[] args) {

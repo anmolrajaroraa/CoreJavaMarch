@@ -41,7 +41,7 @@ public class Car {
 		return vehicleNumber;
 	}
 
-	protected String getModel() {
+	public String getModel() {
 		return model;
 	}
 
@@ -78,72 +78,72 @@ public class Car {
 		return availableCars;
 	}
 	
-	public static ArrayList<Car> showCarsAvailableForBooking(LocalDate newIssueDate, 
-			LocalDate newReturnDate, int seatingCapacityFilter){
-		
-		ArrayList<Car> availableCars = showCarsAvailableForBooking(newIssueDate, newReturnDate);
-		
-		ArrayList<Car> availableCarsAfterMultipleFilters = new ArrayList<>();
-		
-		for(Car car : availableCars) {
-			if(car.seatingCapacity == seatingCapacityFilter) 
-				availableCarsAfterMultipleFilters.add(car);
-		}
-		
-		return availableCarsAfterMultipleFilters;
-	}
-	
-	public static ArrayList<Car> showCarsAvailableForBooking(LocalDate newIssueDate, 
-			LocalDate newReturnDate, int minRent, int maxRent){
-		
-		ArrayList<Car> availableCars = showCarsAvailableForBooking(newIssueDate, newReturnDate);
-		
-		ArrayList<Car> availableCarsAfterMultipleFilters = new ArrayList<>();
-		
-		for(Car car : availableCars) {
-			if(car.rentPerDay <= maxRent && car.rentPerDay >= minRent) 
-				availableCarsAfterMultipleFilters.add(car);
-		}
-		
-		return availableCarsAfterMultipleFilters;
-	}
-	
-	public static ArrayList<Car> showCarsAvailableForBooking(int seatingCapacityFilter, int minRent, int maxRent){
-		
-		ArrayList<Car> availableCars = showCarsAvailableForBooking(seatingCapacityFilter);
-		
-		ArrayList<Car> availableCarsAfterMultipleFilters = new ArrayList<>();
-		
-		for(Car car : availableCars) {
-			if(car.rentPerDay <= maxRent && car.rentPerDay >= minRent) 
-				availableCarsAfterMultipleFilters.add(car);
-		}
-		
-		return availableCarsAfterMultipleFilters;
-	}
-	
-	public static ArrayList<Car> showCarsAvailableForBooking(LocalDate newIssueDate, 
-			LocalDate newReturnDate, int minRent, int maxRent, int seatingCapacityFilter){
-		
-		ArrayList<Car> availableCars = showCarsAvailableForBooking(newIssueDate, newReturnDate);
-		
-		ArrayList<Car> availableCarsAfterMultipleFilters = new ArrayList<>();
-		
-		for(Car car : availableCars) {
-			if(car.rentPerDay <= maxRent && car.rentPerDay >= minRent) 
-				availableCarsAfterMultipleFilters.add(car);
-		}
-		
-		availableCars.clear();
-		
-		for(Car car : availableCarsAfterMultipleFilters) {
-			if(car.seatingCapacity == seatingCapacityFilter) 
-				availableCars.add(car);
-		}
-		
-		return availableCars;
-	}
-	
+//	public static ArrayList<Car> showCarsAvailableForBooking(LocalDate newIssueDate, 
+//			LocalDate newReturnDate, int seatingCapacityFilter){
+//		
+//		ArrayList<Car> availableCars = showCarsAvailableForBooking(newIssueDate, newReturnDate);
+//		
+//		ArrayList<Car> availableCarsAfterMultipleFilters = new ArrayList<>();
+//		
+//		for(Car car : availableCars) {
+//			if(car.seatingCapacity == seatingCapacityFilter) 
+//				availableCarsAfterMultipleFilters.add(car);
+//		}
+//		
+//		return availableCarsAfterMultipleFilters;
+//	}
+//	
+//	public static ArrayList<Car> showCarsAvailableForBooking(LocalDate newIssueDate, 
+//			LocalDate newReturnDate, int minRent, int maxRent){
+//		
+//		ArrayList<Car> availableCars = showCarsAvailableForBooking(newIssueDate, newReturnDate);
+//		
+//		ArrayList<Car> availableCarsAfterMultipleFilters = new ArrayList<>();
+//		
+//		for(Car car : availableCars) {
+//			if(car.rentPerDay <= maxRent && car.rentPerDay >= minRent) 
+//				availableCarsAfterMultipleFilters.add(car);
+//		}
+//		
+//		return availableCarsAfterMultipleFilters;
+//	}
+//	
+//	public static ArrayList<Car> showCarsAvailableForBooking(int seatingCapacityFilter, int minRent, int maxRent){
+//		
+//		ArrayList<Car> availableCars = showCarsAvailableForBooking(seatingCapacityFilter);
+//		
+//		ArrayList<Car> availableCarsAfterMultipleFilters = new ArrayList<>();
+//		
+//		for(Car car : availableCars) {
+//			if(car.rentPerDay <= maxRent && car.rentPerDay >= minRent) 
+//				availableCarsAfterMultipleFilters.add(car);
+//		}
+//		
+//		return availableCarsAfterMultipleFilters;
+//	}
+//	
+//	public static ArrayList<Car> showCarsAvailableForBooking(LocalDate newIssueDate, 
+//			LocalDate newReturnDate, int minRent, int maxRent, int seatingCapacityFilter){
+//		
+//		ArrayList<Car> availableCars = showCarsAvailableForBooking(newIssueDate, newReturnDate);
+//		
+//		ArrayList<Car> availableCarsAfterMultipleFilters = new ArrayList<>();
+//		
+//		for(Car car : availableCars) {
+//			if(car.rentPerDay <= maxRent && car.rentPerDay >= minRent) 
+//				availableCarsAfterMultipleFilters.add(car);
+//		}
+//		
+//		availableCars.clear();
+//		
+//		for(Car car : availableCarsAfterMultipleFilters) {
+//			if(car.seatingCapacity == seatingCapacityFilter) 
+//				availableCars.add(car);
+//		}
+//		
+//		return availableCars;
+//	}
+//	
 }
 
 // Every car has a vehicle number, model, seating capacity, rent per day etc.

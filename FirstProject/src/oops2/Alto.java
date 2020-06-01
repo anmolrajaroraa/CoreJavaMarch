@@ -1,6 +1,8 @@
 package oops2;
 
-public class Alto implements Car{
+public class Alto extends Object implements Car, Cloneable{
+	
+	int a = 100;
 
 	void manualWindow() {
 		System.out.println("Window open through lever...");
@@ -8,11 +10,12 @@ public class Alto implements Car{
 	void manualGears(int noOfGears) {
 		System.out.println("Manually change gears " + noOfGears);
 	}
-	protected Alto clone() {
-		return this.clone();
-	}
 	
-	
+//	@Override
+//	protected Object clone() throws CloneNotSupportedException {
+//		// TODO Auto-generated method stub
+//		return super.clone();
+//	}
 	
 	@Override
 	public void window() {
