@@ -4,7 +4,7 @@ class Accessory implements Cloneable{
 	int x;
 	
 	@Override
-	protected Accessory clone() throws CloneNotSupportedException {
+	protected Accessory clone() throws CloneNotSupportedException  {
 		// TODO Auto-generated method stub
 		return (Accessory)super.clone();
 	}
@@ -22,7 +22,7 @@ class Cab implements Cloneable{
 	
 	@Override
 	protected Cab clone() throws CloneNotSupportedException{
-		Cab obj = (Cab)super.clone();
+		Cab obj = (Cab) super.clone();
 		obj.accessory = accessory.clone();
 		return obj;
 	}
