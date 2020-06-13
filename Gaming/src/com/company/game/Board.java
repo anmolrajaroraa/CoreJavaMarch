@@ -42,7 +42,6 @@ public class Board extends JPanel implements GameConstants{    // white sheet
 	
 	public Board() {
 		setBackground(Color.BLACK);
-		set
 		
 		timer = new Timer(10, (e) -> repaint());
 		timer.start();

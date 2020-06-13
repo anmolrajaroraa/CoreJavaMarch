@@ -7,7 +7,7 @@ public interface GameConstants {
 	 * GHEIGHT is height for the GameFrame
 	 */
 	
-	public static final int GWIDTH = 700;
+	public static final int GWIDTH = 1200;
 	int GHEIGHT = 700;
 	String TITLE = "Game - 2020";
 	

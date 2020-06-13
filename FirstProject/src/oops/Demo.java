@@ -7,6 +7,10 @@ import java.util.Scanner;
 import oops2.BB;
 
 public class Demo {
+	
+	void loadClass() throws ClassNotFoundException {
+		Class.forName("abc");
+	}
 
 	public static void main(String[] args) {
 		

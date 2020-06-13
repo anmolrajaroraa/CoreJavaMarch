@@ -14,8 +14,6 @@ public class ExceptionHandling3 {
 		
 		try {
 			scanner.nextInt();
-			
-			scanner.close();
 		}
 		finally {
 			scanner.close();

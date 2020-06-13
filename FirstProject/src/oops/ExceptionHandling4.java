@@ -52,11 +52,15 @@ public class ExceptionHandling4 {
 			System.out.println("Welcome to ABC Bank...");
 			
 			try {
-				int pin = scanner.nextInt();
 				withdraw();
 			}
 			
+			catch(InputMismatchException e) {
+				System.out.println("Please enter correct details...");
+			}
 			catch(Exception e) {
+//				System.out.println(e.getClass().getSimpleName()
+//						+ " " + e.getMessage());
 				System.out.println(e);
 			}
 			
