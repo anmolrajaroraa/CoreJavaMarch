@@ -12,6 +12,7 @@ class Student2{
 	byte engineeringDrawingMarks;
 	byte frenchMarks;
 	byte accountacyMarks;
+	byte businessStudiesMarks;
 //	byte marks[];
 }
 
