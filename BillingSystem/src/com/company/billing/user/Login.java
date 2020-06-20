@@ -52,6 +52,7 @@ public class Login extends JFrame {
 		this.dispose();
 		Register register = new Register();
 		register.setVisible(true);
+		register.requestFocusInWindow();
 	}
 
 	/**
@@ -65,6 +66,7 @@ public class Login extends JFrame {
 		contentPane.setLayout(null);
 		setLocationRelativeTo(null);
 		contentPane.setBackground(Color.WHITE);
+		contentPane.requestFocusInWindow();
 		setContentPane(contentPane);
 		
 		JLabel lblLogin = new JLabel("Login");
